@@ -3,7 +3,7 @@
 container_name='spring_env'
 
 docker_start(){
-    docker run -p 0.0.0.0:8080:8080 -p 0.0.0.0:8090:8090 -v `pwd`/spring-petclinic:/spring-petclinic --name $container_name tinkerwaredockerhub/tinker_spring:latest
+    docker run -p 0.0.0.0:8080:8080 -p 0.0.0.0:8090:8090 -v `pwd`/project:/project --name $container_name tinkerwaredockerhub/tinker_spring:latest
 }
 
 docker_restart(){
