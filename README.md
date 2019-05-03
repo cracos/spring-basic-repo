@@ -1,5 +1,20 @@
 This is a TinkerWare repository to manage spring enviroments.
 
+You will be able to do quick software development. 
+
+Here are some things that you should keep in mind:
+
+You can start doing code changes inside `project`. There's where your code lives
+and it will be shared automatically with the inner container. 
+It will be running through the shared port `8090`. 
+
+Follow the following commands to be able to develop easily (Described below):
+
+`./tinker start`
+`./tinker restart`
+`./tinker restart --force`
+`./tinker stop`
+
 **Requeriments:**
 
 - Linux/MacOS enviroment
