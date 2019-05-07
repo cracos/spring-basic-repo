@@ -15,7 +15,7 @@ docker_restart(){
 
 if [ $# -eq 0 ] || [ "$1" = "start" ];
 then
-	if ! docker_start 2> /dev/null 
+	if ! docker_start 
 	then
 	    docker_restart
 	fi
