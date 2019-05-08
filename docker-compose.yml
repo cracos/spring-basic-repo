@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  angular:
+    container_name: "healthyvita-angular"
+    build:
+      context: .
+      dockerfile: Dockerfile-angular
+    image: healthyvita-angular
+    volumes:
+     - "./project:/project:rw"
+    ports:
+     - "4200:4200"
+     - "50000:50000"
+
+  spring:
+    container_name: "healthyvita-spring"
+    build:
+      context: .
+      dockerfile: Dockerfile-spring
+    image: healthyvita-spring
+    volumes:
+      - "./project:/project:rw"
+    ports:
+     - "8080:8080"
+     - "8090:8090"
+
