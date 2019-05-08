@@ -1,0 +1,9 @@
+FROM teracy/angular-cli:latest
+EXPOSE 4200:4200
+RUN ng --version &&\
+    ng new new-ng2-app --style scss -sg -si && \
+    cd new-ng2-app && \
+    ng set --global packageManager=yarn && \
+    yarn
+WORKDIR new-ng2-app
+ENTRYPOINT ["ng", "serve", "--host=0.0.0.0"]

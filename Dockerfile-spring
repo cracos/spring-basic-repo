@@ -1,0 +1,7 @@
+FROM springio/gs-spring-boot-docker:latest
+EXPOSE 8080:8080
+EXPOSE 8090:8090
+COPY . .
+WORKDIR project
+RUN ./mvnw package
+ENTRYPOINT ["./mvnw", "spring-boot:run"]
