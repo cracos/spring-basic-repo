@@ -1,36 +1,34 @@
 #!/bin/bash
 
-container_name='spring_env'
 
 docker_start(){
-    docker run -p 0.0.0.0:8080:8080 -p 0.0.0.0:8090:8090 -v `pwd`/project:/project --name $container_name tinkerwaredockerhub/tinker_spring:latest
+    docker-compose up
 }
 
 docker_restart(){
-    docker stop $container_name
-    docker start -a $container_name
+    docker-compose stop
+    docker-compose up
     return 0
 }
 
 
 if [ $# -eq 0 ] || [ "$1" = "start" ];
 then
-	if ! docker_start 2> /dev/null 
+	if ! docker_start 
 	then
 	    docker_restart
 	fi
 fi
 
 if [ "$1" = "stop" ]; then
-	docker stop $container_name
-	echo "container stopped"
+	docker-compose stop
+	echo "containers stopped"
 fi
 
 
 if [ $# -eq 2 ] && [ "$1" = "restart" ] && [ "$2" = "--force" ]; then
-	docker stop $container_name
-	docker rm $container_name
-	docker_start
+	docker-compose stop
+	docker-compose start
 
 elif [ "$1" = "restart" ]; then
 	docker_restart

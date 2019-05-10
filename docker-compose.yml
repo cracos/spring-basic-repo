@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile-angular
     image: healthyvita-angular
     volumes:
-     - "./project:/project:rw"
+     - "./angular-app:/angular-app:rw"
     ports:
      - "4200:4200"
      - "50000:50000"
